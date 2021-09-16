@@ -1,0 +1,146 @@
+.form-center {
+    max-width: $form-center-width;
+    margin: 0 auto;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+
+    .form-header {
+        border-bottom: 1px solid $border-color;
+        background-color: $bg-secondary-color;
+        text-align: center;
+        font-size: $lg-font-size;
+    }
+
+    .form-validation-error {
+        color: $error-color;
+        font-size: $sm-font-size;
+        border-bottom: 1px solid $border-color;
+    }
+
+    .form-header,
+    .form-validation-error {
+        padding: $md-indent;
+    }
+}
+
+.form-group {
+    border-top: 1px solid $border-color;
+
+    &:first-child {
+        border-top: none;
+    }
+
+    .form-group-header {
+        padding: $md-indent;
+        border-bottom: 1px solid $border-color;
+    }
+
+    > :not(.form-group-header) {
+        margin: $md-indent;
+    }
+}
+
+.form-field input,
+.form-select select {
+    width: 100%;
+    padding: $sm-indent;
+    background: transparent;
+    outline: 0;
+    color: $text-color;
+    font-family: inherit;
+    font-size: $md-font-size;
+    @include transition(border-color $transition-parameters);
+    @include box-sizing(border-box);
+}
+
+.form-field input,
+.form-select .select-wrapper {
+    border-radius: $border-radius;
+    border: 1px solid $border-color;
+}
+
+.form-field,
+.form-select {
+    position: relative;
+
+    label {
+        position: absolute;
+        top: -0.75rem;
+        left: 0.7rem;
+        display: block;
+        padding: 0 0.3rem;
+        background-color: $bg-primary-color;
+        color: $secondary-color;
+        font-size: $sm-font-size;
+        pointer-events: none;
+        @include transition($transition-parameters);
+    }
+
+    .validation-error {
+        color: $error-color;
+        font-size: $sm-font-size;
+        margin: $sm-indent $sm-indent $md-indent $sm-indent;
+    }
+}
+
+.form-field {
+    input {
+        &::placeholder {
+            color: transparent;
+        }
+
+        &:placeholder-shown ~ label {
+            cursor: text;
+            top: 1rem;
+            font-size: $md-font-size;
+        }
+
+        &:focus {
+            border-color: $primary-color;
+
+            ~ label {
+                position: absolute;
+                top: -0.75rem;
+                color: $primary-color;
+                font-size: $sm-font-size;
+                @include transition($transition-parameters);
+            }
+        }
+    }
+}
+
+.form-select {
+    .select-wrapper {
+        select {
+            border: none;
+            padding-right: $select-arrow-width;
+            @include appearance(none);
+        }
+
+        .select-arrow {
+            z-index: -1;
+            height: 100%;
+            width: $select-arrow-width;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-left: 1px solid #e0e0e0;
+            background: {
+                image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+                position: center;
+                repeat: no-repeat;
+            }
+        }
+    }
+}
+
+.form-submit {
+    display: flex;
+    align-items: baseline;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+
+    .extra-link {
+        margin-right: auto;
+    }
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Latest orders', ~{::body})}"
+      lang="en">
+    <body>
+        <div class="card" th:each="order : ${orders}">
+            <div class="card-body">
+                <div class="card-text">
+                    <p><b>Name</b>: [[${order.name}]]</p>
+                    <p><b>Street</b>: [[${order.address.street}]]</p>
+                    <p><b>City</b>: [[${order.address.city}]]</p>
+                    <p><b>State</b>: [[${order.address.state}]]</p>
+                    <p><b>Zip code</b>: [[${order.address.zipCode}]]</p>
+                    <p><b>Credit card</b>: [[${order.cardNumber}]]</p>
+                    <p><b>Expiration</b>: [[${order.cardExpirationDate}]]</p>
+                    <p><b>CVV</b>: [[${order.cvv}]]</p>
+                    <p><b>Creation date</b>: [[${order.createdAt}]]</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

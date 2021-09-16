@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Something went wrong', ~{::body})}"
+      lang="en">
+    <body>
+        <div class="text-center">Something went wrong. <a class="link" th:href="@{/}">Go home</a></div>
+    </body>
+</html>

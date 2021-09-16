@@ -1,0 +1,165 @@
+.header {
+    height: $header-height;
+
+    .navbar {
+        display: flex;
+        align-items: center;
+        background-color: $bg-secondary-color;
+        height: $header-height - 1px;
+        border-bottom: 1px solid $border-color;
+        z-index: 20;
+
+        .logo {
+            max-width: $header-logo-size;
+            margin: $sm-indent;
+        }
+
+        .menu-icon {
+            display: none;
+        }
+
+        .navbar-menu {
+            display: flex;
+            width: 100%;
+
+            ul {
+                list-style: none;
+
+                &.right {
+                    margin-left: auto;
+                }
+
+                li {
+                    display: inline-block;
+                    border-left: 2px solid $border-color;
+
+                    .navbar-link {
+                        display: block;
+                        padding: $navbar-item-padding-v $navbar-item-padding-h;
+                        font-size: $md-font-size;
+                        text-decoration: none;
+                        background-color: inherit;
+                        border: none;
+                        color: $text-color;
+                        cursor: pointer;
+                        @include transition(color $transition-parameters);
+
+                        &:hover {
+                            color: $primary-color;
+                        }
+                    }
+
+                    &:first-child {
+                        border-left: none;
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: $phone-breakpoint) {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: $header-height;
+            flex-direction: row-reverse;
+
+            .menu-icon {
+                display: block;
+                z-index: 20;
+                margin-right: auto;
+                margin-left: $md-indent;
+            }
+
+            .navbar-menu {
+                display: block;
+                position: fixed;
+                left: 0;
+                top: $header-height + 1px;
+                bottom: 0;
+                width: $navber-menu-phone-width;
+                background-color: $bg-secondary-color;
+                border-right: 1px solid $border-color;
+                overflow: auto;
+                @include transform(translateX(-100%));
+                @include transition(transform $transition-parameters);
+
+                &.expand {
+                    @include transform(translateX(0));
+                }
+
+                ul li {
+                    display: block;
+                    border: none;
+                    padding: $sm-indent $md-indent;
+                }
+            }
+        }
+    }
+}
+
+.content {
+    max-width: $content-width;
+    margin: $md-indent auto;
+    padding: 0 $md-indent;
+}
+
+.card {
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    margin: $md-indent 0;
+
+    .card-header {
+        padding: $md-indent;
+        border-bottom: 1px solid $border-color;
+        background-color: $bg-secondary-color;
+        font-size: $lg-font-size;
+    }
+
+    .card-body {
+        padding: $md-indent;
+
+        &.image-float {
+            img {
+                max-width: $card-image-width;
+                width: 100%;
+                display: block;
+
+                &.image-right {
+                    float: right;
+                    margin: {
+                        left: $md-indent;
+                        bottom: $md-indent;
+                    }
+
+                    @media screen and (max-width: $phone-breakpoint) {
+                        float: none;
+                        margin: 0 auto;
+                    }
+                }
+            }
+
+            &::after {
+                content: '';
+                display: block;
+                clear: both;
+            }
+        }
+
+        .card-text {
+            p {
+                margin: $md-indent 0;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

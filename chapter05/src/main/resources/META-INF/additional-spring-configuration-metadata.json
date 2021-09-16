@@ -1,0 +1,10 @@
+{
+  "properties": [
+    {
+      "name": "taco.orders.page-size",
+      "type": "java.lang.String",
+      "description": "Maximum number of orders to display in a list.",
+      "defaultValue": 20
+    }
+  ]
+}

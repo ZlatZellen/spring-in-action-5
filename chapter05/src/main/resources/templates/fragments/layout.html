@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      th:fragment="layout (title, template)"
+      lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title th:text="${title}"></title>
+        <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    </head>
+    <body>
+        <header class="header">
+            <nav role="navigation" class="navbar">
+                <a th:href="@{/}">
+                    <img class="logo" alt="taco cloud logo" th:src="@{/images/taco-cloud.png}"/>
+                </a>
+                <div id="nav-icon" class="menu-icon">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+                <div id="navbar-menu" class="navbar-menu">
+                    <ul>
+                        <li>
+                            <a class="navbar-link" th:href="@{/}">Home</a>
+                        </li>
+                        <li>
+                            <a class="navbar-link" th:href="@{/tacos}">Design taco</a>
+                        </li>
+                        <li>
+                            <a class="navbar-link" th:href="@{/orders}">Latest orders</a>
+                        </li>
+                    </ul>
+                    <ul class="right">
+                        <li sec:authorize="isAnonymous()">
+                            <a class="navbar-link" th:href="@{/login}">Sign In</a>
+                        </li>
+                        <li sec:authorize="isAnonymous()">
+                            <a class="navbar-link" th:href="@{/register}">Sign Up</a>
+                        </li>
+                        <li sec:authorize="isAuthenticated()">
+                            <form class="form-inline" method="post" th:action="@{/logout}">
+                                <input class="navbar-link" type="submit" value="Log Out"/>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main class="content">
+            <th:block th:include="${template}"/>
+        </main>
+        <script>
+            const navIcon = document.getElementById('nav-icon');
+            const navbarMenu = document.getElementById('navbar-menu');
+            navIcon.addEventListener('click', function () {
+                navIcon.classList.toggle('expand');
+                navbarMenu.classList.toggle('expand');
+            });
+        </script>
+    </body>
+</html>

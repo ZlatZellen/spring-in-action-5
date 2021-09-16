@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/tacoclouddb
+    username: tacoman
+    password: namocat
+    schema: classpath:db/mysql/schema.sql
+    initialization-mode: always
+  h2:
+    console:
+      enabled: false

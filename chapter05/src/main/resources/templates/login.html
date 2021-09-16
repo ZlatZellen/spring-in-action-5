@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Sign In', ~{::body})}"
+      lang="en">
+    <body>
+        <form class="form-center" method="post" th:action="@{/login}">
+            <h1 class="form-header">Sign In</h1>
+            <div class="form-validation-error" th:if="${(param.error != null)}">
+                Credentials are incorrect
+            </div>
+            <div>
+                <div class="form-group">
+                    <div class="form-field">
+                        <input type="text" placeholder="Username" name="username"/>
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="form-field">
+                        <input type="password" placeholder="Password" name="password"/>
+                        <label for="password">Password</label>
+                    </div>
+                    <div th:replace="~{fragments/submit :: submit(value='Sign In', extraLink=@{/register}, extraLinkText='Sign Up')}"/>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:tacoclouddb
+    username: tacoman
+    schema: classpath:db/h2/schema.sql
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+
+taco:
+  orders:
+    page-size: 5
