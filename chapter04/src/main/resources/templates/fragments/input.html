@@ -1,0 +1,8 @@
+<div class="form-field" th:fragment="input(label, name, type)">
+    <input th:type="${type}" th:placeholder="${label}" th:field="*{__${name}__}"/>
+    <label th:for="${name}" th:text="${label}">Label</label>
+    <div class="validation-error"
+         th:if="${#fields.hasErrors(name)}"
+         th:errors="*{__${name}__}">Error
+    </div>
+</div>

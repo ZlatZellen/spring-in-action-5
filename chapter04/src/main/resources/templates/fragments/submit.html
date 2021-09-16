@@ -1,0 +1,7 @@
+<div class="form-submit" th:fragment="submit(value)" th:with="extraLinkText = ${extraLinkText} ?: ${extraLink}">
+    <input type="submit" th:value="${value}" class="btn"/>
+    <a class="extra-link link"
+       th:if="${extraLink}"
+       th:href="${extraLink}"
+       th:text="${extraLinkText}">Link</a>
+</div>

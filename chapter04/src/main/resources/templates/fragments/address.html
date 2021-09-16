@@ -1,0 +1,6 @@
+<th:block th:fragment="address(name)">
+    <div th:replace="~{fragments/input :: input('Street', ${name} + '.street', 'text')}"></div>
+    <div th:replace="~{fragments/input :: input('City', ${name} + '.city', 'text')}"></div>
+    <div th:replace="~{fragments/input :: input('State', ${name} + '.state', 'text')}"></div>
+    <div th:replace="~{fragments/input :: input('Zip code', ${name} + '.zipCode', 'text')}"></div>
+</th:block>

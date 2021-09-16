@@ -1,0 +1,36 @@
+$border-radius: 0.4rem;
+
+$font-family: "Gill Sans", sans-serif;
+$sm-font-size: 1.5rem;
+$md-font-size: 1.75rem;
+$lg-font-size: 2rem;
+$xl-font-size: 2.5rem;
+
+$sm-indent: 0.75rem;
+$md-indent: 1.5rem;
+$lg-indent: 2.5rem;
+$xl-indent: 3rem;
+
+$bg-primary-color: #fff;
+$bg-secondary-color: #fafafa;
+$border-color: #e0e0e0;
+$text-color: #212f3d;
+$primary-color: #007cc7;
+$darker-primary-color: darken($primary-color, 10%);
+$secondary-color: #9b9b9b;
+$error-color: #e74c3c;
+
+$shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+$transition-parameters: 0.25s ease;
+
+$phone-breakpoint: 800px;
+
+$header-height: 75px;
+$header-logo-size: 75px;
+$navbar-item-padding-v: 5px;
+$navbar-item-padding-h: 15px;
+$navber-menu-phone-width: 250px;
+$content-width: 1200px;
+$card-image-width: 450px;
+$form-center-width: 450px;
+$select-arrow-width: 26px;
