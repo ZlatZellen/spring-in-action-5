@@ -1,0 +1,261 @@
+/* reset styles */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* set root font-size and define variables */
+:root {
+    font-size: 62.5%;
+}
+
+:root {
+    --border-radius: 0.4rem;
+
+    --font-family: "Gill Sans", sans-serif;
+    --sm-font-size: 1.25rem;
+    --md-font-size: 1.5rem;
+    --lg-font-size: 1.75rem;
+    --xl-font-size: 2rem;
+
+    --sm-indent: 0.75rem;
+    --md-indent: 1rem;
+    --lg-indent: 1.5rem;
+    --xl-indent: 2rem;
+
+    --bg-primary-color: #fff;
+    --bg-secondary-color: #f6f6f6;
+    --border-color: #e0e0e0;
+    --text-color: #212f3d;
+    --primary-color: #52be80;
+    --darker-primary-color: #239b56;
+    --secondary-color: #9b9b9b;
+    --error-color: #e74c3c;
+
+    --shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+/* spacing */
+.md-v-margin {
+    margin: var(--md-indent) 0;
+}
+
+/* flex container */
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex.justify-center {
+    justify-content: center;
+}
+
+.flex.justify-right {
+    justify-content: right;
+}
+
+.flex.align-center {
+    align-items: center;
+}
+
+/* cards */
+.card {
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    -webkit-box-shadow: var(--shadow);
+    -moz-box-shadow: var(--shadow);
+    box-shadow: var(--shadow);
+}
+
+.card > h2 {
+    font-size: var(--lg-font-size);
+    background-color: var(--bg-secondary-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card > * {
+    padding: var(--md-indent);
+}
+
+/* input fields */
+.form-field {
+    position: relative;
+}
+
+.form-field > input {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    padding: var(--sm-indent) var(--md-indent);
+    background: transparent;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    outline: 0;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: var(--md-font-size);
+    transition: border-color 0.2s;
+}
+
+.form-field > input::placeholder {
+    color: transparent;
+}
+
+.form-field > label {
+    position: absolute;
+    top: -0.75rem;
+    left: 0.7rem;
+    display: block;
+    padding: 0 0.3rem;
+    background-color: var(--bg-primary-color);
+    color: var(--secondary-color);
+    font-size: var(--sm-font-size);
+    transition: 0.2s;
+    pointer-events: none;
+}
+
+.form-field > input:placeholder-shown ~ label {
+    cursor: text;
+    top: 1rem;
+    font-size: var(--md-font-size);
+}
+
+.form-field > input:focus {
+    border-color: var(--primary-color);
+}
+
+.form-field > input:focus ~ label {
+    position: absolute;
+    top: -0.75rem;
+    color: var(--primary-color);
+    font-size: var(--sm-font-size);
+    transition: 0.2s;
+}
+
+/* notifications */
+.validation-error {
+    color: var(--error-color);
+    margin: var(--sm-indent) var(--sm-indent) var(--md-indent) var(--sm-indent);
+}
+
+/* buttons */
+a.button,
+input[type="submit"] {
+    cursor: pointer;
+    display: inline-block;
+    padding: var(--md-indent) var(--lg-indent);
+    border-style: solid;
+    border-width: 0 0 3px;
+    border-radius: var(--border-radius);
+    border-color: var(--darker-primary-color);
+    background-color: var(--primary-color);
+    color: var(--bg-primary-color);
+    font-family: var(--font-family);
+    font-size: var(--md-font-size);
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 200ms ease-in-out 0s;
+}
+
+a.button:hover,
+input[type="submit"]:hover {
+    background-color: var(--darker-primary-color);
+}
+
+/* list */
+.list > li {
+    position: relative;
+    list-style-type: none;
+    padding-left: var(--xl-indent);
+    margin-bottom: var(--md-indent);
+}
+
+.list li:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -5px;
+    width: 5px;
+    height: 11px;
+    border-width: 0 2px 2px 0;
+    border-style: solid;
+    border-color: var(--primary-color);
+    transform-origin: bottom left;
+    transform: rotate(45deg);
+}
+
+/* groups */
+.card-group > .card:not(:first-child),
+.form-field-group > .form-field:not(:first-child) {
+    margin-top: var(--md-indent);
+}
+
+.card-group > .card:not(:last-child),
+.form-field-group > .form-field:not(:last-child) {
+    margin-bottom: var(--md-indent);
+}
+
+/* pages styles */
+body {
+    max-width: 700px;
+    margin: auto;
+    padding: 0 var(--md-indent);
+    background-color: var(--bg-primary-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: var(--md-font-size);
+}
+
+header img {
+    max-width: 150px;
+}
+
+header h1 {
+    margin: var(--md-indent);
+    font-size: var(--xl-font-size);
+}

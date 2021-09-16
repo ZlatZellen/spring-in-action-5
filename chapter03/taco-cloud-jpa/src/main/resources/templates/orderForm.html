@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Taco Cloud</title>
+        <link rel="stylesheet" th:href="@{/styles.css}"/>
+    </head>
+    <body>
+        <header class="flex align-center justify-center">
+            <img alt="taco cloud logo" th:src="@{/images/taco-cloud.png}"/>
+            <h1>Order your taco creations!</h1>
+            <a class="button" th:href="@{/tacos}">Design another taco</a>
+        </header>
+
+        <div class="card md-v-margin">
+            <h2>Designed tacos:</h2>
+            <ul class="list">
+                <li th:each="taco : ${order.tacos}" th:text="${taco.name}"></li>
+            </ul>
+        </div>
+
+        <form class="md-v-margin" method="post" th:action="@{/orders}" th:object="${order}">
+            <div class="validation-error" th:if="${#fields.hasErrors()}">
+                Please correct the problems below and resubmit.
+            </div>
+            <div class="card-group">
+                <div class="card">
+                    <h2>Deliver my taco masterpieces to...</h2>
+                    <div class="form-field-group">
+                        <div class="form-field">
+                            <input type="text" placeholder="Name" th:field="*{name}"/>
+                            <label for="name">Name</label>
+                            <div class="validation-error"
+                                 th:if="${#fields.hasErrors('name')}"
+                                 th:errors="*{name}">CC Num Error
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <input type="text" placeholder="Street address" th:field="*{address.street}"/>
+                            <label for="address.street">Street address</label>
+                            <div class="validation-error"
+                                 th:if="${#fields.hasErrors('address.street')}"
+                                 th:errors="*{address.street}">CC Num Error
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <input type="text" placeholder="City" th:field="*{address.city}"/>
+                            <label for="address.city">City</label>
+                            <div class="validation-error"
+                                 th:if="${#fields.hasErrors('address.city')}"
+                                 th:errors="*{address.city}">CC Num Error
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <input type="text" placeholder="State" th:field="*{address.state}"/>
+                            <label for="address.state">State</label>
+                            <div class="validation-error"
+                                 th:if="${#fields.hasErrors('address.state')}"
+                                 th:errors="*{address.state}">CC Num Error
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <input type="text" placeholder="Zip code" th:field="*{address.zipCode}"/>
+                            <label for="address.zipCode">Zip code</label>
+                            <div class="validation-error"
+                                 th:if="${#fields.hasErrors('address.zipCode')}"
+                                 th:errors="*{address.zipCode}">CC Num Error
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2>Here's how I'll pay...</h2>
+                    <div class="form-field-group">
+                        <div class="form-field">
+                            <input type="text" placeholder="Credit card" th:field="*{cardNumber}"/>
+                            <label for="cardNumber">Credit card</label>
+                            <div class="validation-error"
+                                 th:if="${#fields.hasErrors('cardNumber')}"
+                                 th:errors="*{cardNumber}">CC Num Error
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <input type="text" placeholder="Expiration" th:field="*{cardExpirationDate}"/>
+                            <label for="cardExpirationDate">Expiration</label>
+                            <div class="validation-error"
+                                 th:if="${#fields.hasErrors('cardExpirationDate')}"
+                                 th:errors="*{cardExpirationDate}">CC Num Error
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <input type="text" placeholder="CVV" th:field="*{cvv}"/>
+                            <label for="cvv">CVV</label>
+                            <div class="validation-error"
+                                 th:if="${#fields.hasErrors('cvv')}"
+                                 th:errors="*{cvv}">CC Num Error
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-right md-v-margin">
+                <input type="submit" value="Submit order"/>
+            </div>
+        </form>
+    </body>
+</html>
